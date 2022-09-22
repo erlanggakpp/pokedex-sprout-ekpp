@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchOnePokemon } from "../stores/actions/pokemonAction";
 
-function PokemonCard({ pokemon }) {
+function PokemonCard({ pokemon, offset }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [bgColor, setBgColor] = useState(
@@ -74,6 +74,7 @@ function PokemonCard({ pokemon }) {
   }, []);
 
   const toDetailPage = () => {
+    onePokemon.offset = offset;
     navigate(`/pokemons/${onePokemon.name}`, { state: onePokemon });
   };
   return (

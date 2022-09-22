@@ -20,6 +20,7 @@ export const fetch30pokemons = (limit, offset) => {
       })
       .then((data) => {
         // console.log(data);
+        dispatch(fetchSuccess(FETCH_30_POKEMONS, data.results));
         return data.results;
       });
   };
@@ -34,7 +35,7 @@ export const fetchOnePokemon = (url) => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data, "INI DARI ACTION");
+        dispatch(fetchSuccess(FETCH_ONE_POKEMON, data));
         return data;
       });
   };
